@@ -52,7 +52,7 @@ namespace XamarinApis.ViewModel
                     SessionServices session = App.ServiceLocator.SessionServices;
                     session.Favoritos.Add(this.Doctor);
                     await Application.Current.MainPage.DisplayAlert
-                    ("Alert","Dcotor almacenados", "OK");
+                    ("Alert","Doctor almacenados", "OK");
                 });
             }
         }

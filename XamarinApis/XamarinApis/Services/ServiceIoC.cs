@@ -22,9 +22,9 @@ namespace XamarinApis.Services
 
             builder.RegisterType<DoctoresViewModel>();
             builder.RegisterType<DoctorDetalleViewModel>();
-            builder.RegisterType<SessionServices>().SingleInstance();
-            builder.RegisterType<ServiceDoctores>();
             builder.RegisterType<DoctoresFavoritosViewModel>();
+            builder.RegisterType<ServiceDoctores>();
+            builder.RegisterType<SessionServices>().SingleInstance();
             this.container = builder.Build();
         }
 
@@ -49,6 +49,14 @@ namespace XamarinApis.Services
             get
             {
                 return this.container.Resolve<SessionServices>();
+            }
+        }
+
+        public DoctoresFavoritosViewModel DoctoresFavoritosViewModel
+        {
+            get
+            {
+                return this.container.Resolve<DoctoresFavoritosViewModel>();
             }
         }
     }

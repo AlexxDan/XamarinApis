@@ -3,18 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinApis.View.DoctoresFavoritosView"
              xmlns:local="clr-namespace:XamarinApis"
-            
-             BindingContext="{Binding Source={x:Static local:Application.ServiceLocator},
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator},
     Path=DoctoresFavoritosViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                />
+            <Label Text="Doctores favoritos" FontSize="30" TextColor="Orange"/>
             <ListView ItemsSource="{Binding Doctores}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                           
+                            <StackLayout>                                <Label Text="{Binding Apellido}" TextColor="Green" FontSize="25"/>                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
