@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApis.View.DoctoresView"
+             xmlns:viewmodels="clr-namespace:XamarinApis.ViewModel"
+             xmlns:local="clr-namespace:XamarinApis"
+             >
+    <ContentPage.Content>
+        <StackLayout x:Name="steckdoctores" BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=DoctoresViewModel}">
+            <!--<StackLayout.BindingContext>
+                <viewmodels:DoctoresViewModel/>
+            </StackLayout.BindingContext>-->
+            <Label Text="Doctores" TextColor="Red"
+               VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                   />
+            <ListView ItemsSource="{Binding Doctores}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Apellido}" FontSize="20"
+                                       TextColor="Blue"/>
+                                <Button HorizontalOptions="End"
+                                        CommandParameter="{Binding .}"
+                                        Text="Detalles" Command="{Binding BindingContext.DetalleDoctor,
+                                    Source={x:Reference steckdoctores}}"
+                                        />
+                                <Button HorizontalOptions="FillAndExpand" 
+                                        Text="Favoritos" TextColor="Blue"
+                                        CommandParameter="{Binding .}"
+                                        Command="{Binding BindingContext.MarcarFavoritos
+                                    ,Source={x:Reference steckdoctores}}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
