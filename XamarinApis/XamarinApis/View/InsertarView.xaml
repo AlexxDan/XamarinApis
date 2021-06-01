@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApis.View.InsertarView"
+             xmlns:local="clr-namespace:XamarinApis"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator},
+             Path=DoctorViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="nuevo Doctor"
+                FontSize="40" TextColor="Black" 
+                   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+            <Label Text="ID Doctor"/>
+            <Entry Placeholder="Id Doctor" Text="{Binding Doctor.IdDoctores}"/>
+            <Label Text="Apellido"/>
+            <Entry Placeholder="Apellido" Text="{Binding Doctor.Apellido}"/>
+            <Label Text="Especialidad"/>
+            <Entry Placeholder="Especialidad" Text="{Binding Doctor.Especialidad}"/>
+            <Label Text="ID Hospital"/>
+            <Entry Placeholder="ID Hospital" Text="{Binding Doctor.IdHospital}"/>
+            <Label Text="Salario"/>
+            <Entry Placeholder="Salario" Text="{Binding Doctor.Salario}"/>
+
+            <Button Text="Insertar Doctor" TextColor="Blue"
+                    Command="{Binding InsertarDoctor}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

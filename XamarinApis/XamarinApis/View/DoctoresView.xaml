@@ -12,13 +12,29 @@
                    HorizontalOptions="CenterAndExpand"
                    />
             <Button Text="Mostrar Favoritos" Command="{Binding MostrarFavoritos}"/>
+         
             <ListView ItemsSource="{Binding Doctores}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <!--<ViewCell.ContextActions>
+                                <MenuItem Text="Marcar Favoritos" CommandParameter="{Binding .}"
+                                        Command="{Binding BindingContext.MarcarFavoritos
+                                    ,Source={x:Reference steckdoctores}}"/>
+                                <MenuItem Text="Detalles" CommandParameter="{Binding .}"
+                                         Command="{Binding BindingContext.DetalleDoctor,
+                                    Source={x:Reference steckdoctores}}"/>
+                            </ViewCell.ContextActions>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Apellido}" FontSize="20"
                                        TextColor="Blue"/>
+                                <Image Source="details.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}"
+                                        Command="{Binding BindingContext.DetalleDoctor,
+                                    Source={x:Reference steckdoctores}}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
                                 <Button HorizontalOptions="End"
                                         CommandParameter="{Binding .}"
                                         Text="Detalles" Command="{Binding BindingContext.DetalleDoctor,
@@ -28,12 +44,63 @@
                                         Text="Favoritos" TextColor="Blue"
                                         CommandParameter="{Binding .}"
                                         Command="{Binding BindingContext.MarcarFavoritos
-                                    ,Source={x:Reference steckdoctores}}"/>
+                                    ,Source={x:Reference steckdoctores}}"/>-->
+                            
+                            
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <!--<SwipeView Threshold="200">
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <SwipeItem 
+                                               IconImageSource="favoritoIcon.png"
+                                               BackgroundColor="LightYellow"
+                                               Text="Favoritos" 
+                                               CommandParameter="{Binding .}"
+                                               Command="{Binding BindingContext.MarcarFavoritos,
+                                               Source={x:Reference steckdoctores}}"/>
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem 
+                                               IconImageSource="details.png"
+                                               BackgroundColor="LightGreen"
+                                               CommandParameter="{Binding .}"
+                                               Text="Detalles" Command="{Binding BindingContext.DetalleDoctor,
+                                               Source={x:Reference steckdoctores}}" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>-->
+                                <SwipeView>
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <SwipeItem 
+                                               IconImageSource="favoritoIcon.png"
+                                               BackgroundColor="LightYellow"
+                                               Text="Favoritos" 
+                                               CommandParameter="{Binding .}"
+                                               Command="{Binding BindingContext.MarcarFavoritos,
+                                               Source={x:Reference steckdoctores}}"/>
+                                            <SwipeItem IconImageSource="details.png"
+                                               BackgroundColor="LightGreen"
+                                               CommandParameter="{Binding .}"
+                                               Text="Detalles" Command="{Binding BindingContext.DetalleDoctor,
+                                               Source={x:Reference steckdoctores}}"  />
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+                                    <Grid HeightRequest="60"
+                                          WidthRequest="400"
+                                          BackgroundColor="LightGray">
+                                        <Label Text="{Binding Apellido}" FontSize="20"
+                                       TextColor="Blue"/>
+                                    </Grid>
+                                </SwipeView>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+       
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
